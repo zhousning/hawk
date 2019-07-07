@@ -1,68 +1,17 @@
-.home-footer
+-#
+  .home-footer.border-top.mt-5
+  %p.text-center.mb-0.text-secondary
+    
+%footer.text-muted.border-top.pt-3
   .container
-    .row-15
-      .col-md-15
-        %ul.footer-list
-          %li.head
-            买家指南
-          %li
-            = link_to nil do
-              新手上路
-          %li
-            = link_to nil do
-              常见问题
-      .col-md-15
-        %ul.footer-list
-          %li.head
-            卖家支持
-          %li
-            = link_to nil do
-              加盟注入
-          %li
-            = link_to nil do
-              卖家中心
-          %li
-            = link_to nil do
-              常见问题
-      .col-md-15
-        %ul.footer-list
-          %li.head
-            关于科技创新卷
-          %li
-            = link_to nil do
-              政策介绍
-          %li
-            = link_to nil do
-              申请与使用
-          %li
-            = link_to nil do
-              科技券纳入服务
-          %li
-            = link_to nil do
-              视频帮助
-      .col-md-15
-        %ul.footer-list
-          %li.head
-            关于平台
-          %li
-            = link_to nil do
-              关于我们
-          %li
-            = link_to nil do
-              服务条款
-          %li
-            = link_to nil do
-              法律声明
-      .col-md-15
-        %ul.footer-list
-          %li.head
-            联系我们
-          %li
-            = link_to nil do
-              400-600-800
-          %li
-            = link_to nil do
-              jilin@163.cn
-          %li
-            = link_to nil do
-              在线客服
+    %p.float-right
+      %a{:href => "#"} 回顶部 
+    %p
+      &#xA9; 版权属本实验室所有 二零一九年 本实验室保留本网页内一切权利 
+    -#
+      %p
+        New to Bootstrap?
+        %a{:href => "../../"} Visit the homepage
+        or read our
+        = succeed "." do
+          %a{:href => "../../getting-started/"} getting started guide

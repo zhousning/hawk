@@ -1,7 +1,7 @@
-.container-fluid
+.container.py-3
   .row
-    %main.col-md-9.ml-sm-auto.col-lg-10.pt-3.px-4{:role => "main"}
-      .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-2.mb-3.border-bottom
-        %h1.h2
-          = t(controller_name + "." + action_name + '.title')
-      = yield :main_body 
+    .col-md-3.sidebar-bg.min-height-info
+      %ul.list-group.list-group-flush.pt-3
+        = yield :sidebar_body
+    .col-md-9
+      = yield :content_body
