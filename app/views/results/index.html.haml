@@ -1,37 +1,9 @@
 - provide(:title, t('.title'))
 
-- content_for :main_body do
-  .container-fluid
-    .row
-      .col-md-3
-        = render "layouts/system_search"
-    .row.buyer-table-ctn
-      .col-md-12
-        %table.table.text-center.table-bordered.table-list-search
-          %thead
-            %tr
-              %th #
-            
-              %th 
-                = Setting.results.title
-              %th 
-                = Setting.results.content
-              %th 
-                = Setting.results.order
-              %th
-          %tbody
-            - @results.each_with_index do |result, index|
-              %tr
-                %td
-                  = index+1
-              
-                %td
-                  = result.title
-                %td
-                  = result.content
-                %td
-                  = result.order
-                %td
-                  = link_to "查看", result_path(result), :class => "btn btn-primary btn-sm"
+- content_for :sidebar_body do
+  - @results.each_with_index do |result, index|
+    = link_to result.title, result_path(result), :class => "list-group-item text-dark"
+- content_for :content_body do
+  = @results.first.content.html_safe
 
 = render "layouts/control_panel"

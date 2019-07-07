@@ -1,31 +1,10 @@
 - provide(:title, t('.title'))
 
-- content_for :main_body do
-  .container-fluid
-    .row
-      .col-md-12
-        %table.table.text-center.table-bordered
-          %thead
-            %tr
-            
-              %th 
-                = Setting.results.title
-              %th 
-                = Setting.results.content
-              %th 
-                = Setting.results.order
-              %th
-          %tbody
-            %tr
-            
-              %td
-                = @result.title
-              %td
-                = @result.content
-              %td
-                = @result.order
-              %td
-                = link_to '返回', results_path, :class => "btn btn-danger"
+- content_for :sidebar_body do
+  - @results.each_with_index do |result, index|
+    = link_to result.title, result_path(result), :class => "list-group-item text-dark"
+- content_for :content_body do
+  = @result.content.html_safe
     
 
 = render "layouts/control_panel"

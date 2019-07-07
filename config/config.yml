@@ -214,7 +214,7 @@ defaults:
     title: 标题
     content: 正文
   manages: &30
-    tag: 科研管理
+    tag: 联系我们 
     title: 标题
     content: 正文
 development:

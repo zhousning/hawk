@@ -1,27 +1,16 @@
 - provide(:title, t('.title'))
 
-- content_for :main_body do
-  .container-fluid
-    .row
-      .col-md-12
-        %table.table.text-center.table-bordered
-          %thead
-            %tr
-            
-              %th 
-                = Setting.reports.title
-              %th 
-                = Setting.reports.content
-              %th
-          %tbody
-            %tr
-            
-              %td
-                = @report.title
-              %td
-                = @report.content
-              %td
-                = link_to '返回', reports_path, :class => "btn btn-danger"
-    
+- content_for :sidebar_body do
+  = link_to Setting.reports.tag, reports_path, :class => "list-group-item text-dark"
+  = link_to Setting.activities.tag, activities_path, :class => "list-group-item text-dark"
+
+- content_for :content_body do
+  %h5.text-center.mt-3
+    = @report.title
+  %p.text-center
+    %small
+      = "发布时间: " +  @report.created_at.strftime('%Y-%m-%d')
+  %hr
+  = @report.content.html_safe
 
 = render "layouts/control_panel"

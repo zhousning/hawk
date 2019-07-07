@@ -1,33 +1,17 @@
 - provide(:title, t('.title'))
 
-- content_for :main_body do
-  .container-fluid
-    .row
-      .col-md-3
-        = render "layouts/system_search"
-    .row.buyer-table-ctn
-      .col-md-12
-        %table.table.text-center.table-bordered.table-list-search
-          %thead
-            %tr
-              %th #
-            
-              %th 
-                = Setting.reports.title
-              %th 
-                = Setting.reports.content
-              %th
-          %tbody
-            - @reports.each_with_index do |report, index|
-              %tr
-                %td
-                  = index+1
-              
-                %td
-                  = report.title
-                %td
-                  = report.content
-                %td
-                  = link_to "查看", report_path(report), :class => "btn btn-primary btn-sm"
+- content_for :sidebar_body do
+  = link_to Setting.reports.tag, reports_path, :class => "list-group-item text-dark"
+  = link_to Setting.activities.tag, activities_path, :class => "list-group-item text-dark"
+
+- content_for :content_body do
+  %ul.list-group.list-group-flush
+    - @reports.each_with_index do |report, index|
+      = link_to report_path(report), :class => "list-group-item list-group-item-action" do
+        %p.mb-0
+          = report.title
+        %p.text-right
+          %small
+            = report.created_at.strftime('%Y-%m-%d')
 
 = render "layouts/control_panel"

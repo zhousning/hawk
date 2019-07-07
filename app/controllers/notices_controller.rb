@@ -2,7 +2,7 @@ class NoticesController < ApplicationController
   layout "application_control"
 
   def index
-    @notices = Notice.all
+    @notices = Notice.all.order("created_at DESC")
   end
 
   def show
