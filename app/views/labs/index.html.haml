@@ -1,0 +1,13 @@
+- provide(:title, t('.title'))
+
+.container
+  .row
+    .col-md-3.bg-light
+      %ul.list-group.list-group-flush.pt-3
+        - @labs.each do |lab|
+          = link_to lab.title, lab_path(lab), :class => "list-group-item bg-light"
+    .col-md-9
+      = @labs.first.content.html_safe
+
+-#= render "layouts/control_panel"
+  - content_for :main_body do

@@ -1,0 +1,50 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid
+    .row
+      .col-md-3
+        = render "layouts/system_search"
+      .col-md-2
+    .row.buyer-table-ctn
+      .col-md-12
+        %table.table.text-center.table-bordered.table-list-search
+          %thead
+            %tr
+              %th #
+            
+              %th 
+                = Setting.members.name
+              %th 
+                = Setting.members.email
+              %th 
+                = Setting.members.homepage
+              %th 
+                = Setting.members.intro
+              %th 
+                = Setting.members.level
+              %th 
+                = Setting.members.photo
+              %th
+          %tbody
+            - @members.each_with_index do |member, index|
+              %tr
+                %td
+                  = index+1
+              
+                %td
+                  = member.name
+                %td
+                  = member.email
+                %td
+                  = member.homepage
+                %td
+                  = member.intro
+                %td
+                  = member.level
+                %td
+                  = member.photo
+                %td
+                  = link_to "查看", member_path(member), :class => "btn btn-primary btn-sm"
+
+= render "layouts/control_panel"

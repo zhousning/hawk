@@ -1,0 +1,28 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid
+    .row
+      .col-md-12
+        %table.table.text-center.table-bordered
+          %thead
+            %tr
+            
+              %th 
+                = Setting.activities.title
+              %th 
+                = Setting.activities.content
+              %th
+          %tbody
+            %tr
+            
+              %td
+                = @activity.title
+              %td
+                = @activity.content
+              %td
+                = link_to '编辑', edit_activity_path(@activity), :class => "btn btn-success"
+                = link_to '返回', activities_path, :class => "btn btn-danger"
+    
+
+= render "layouts/control_panel"

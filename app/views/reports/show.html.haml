@@ -1,0 +1,27 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid
+    .row
+      .col-md-12
+        %table.table.text-center.table-bordered
+          %thead
+            %tr
+            
+              %th 
+                = Setting.reports.title
+              %th 
+                = Setting.reports.content
+              %th
+          %tbody
+            %tr
+            
+              %td
+                = @report.title
+              %td
+                = @report.content
+              %td
+                = link_to '返回', reports_path, :class => "btn btn-danger"
+    
+
+= render "layouts/control_panel"

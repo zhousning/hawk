@@ -1,0 +1,43 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid
+    .row
+      .col-md-12
+        %table.table.text-center.table-bordered
+          %thead
+            %tr
+            
+              %th 
+                = Setting.members.name
+              %th 
+                = Setting.members.email
+              %th 
+                = Setting.members.homepage
+              %th 
+                = Setting.members.intro
+              %th 
+                = Setting.members.level
+              %th 
+                = Setting.members.photo
+              %th
+          %tbody
+            %tr
+            
+              %td
+                = @member.name
+              %td
+                = @member.email
+              %td
+                = @member.homepage
+              %td
+                = @member.intro
+              %td
+                = @member.level
+              %td
+                = @member.photo
+              %td
+                = link_to '返回', members_path, :class => "btn btn-danger"
+    
+
+= render "layouts/control_panel"
